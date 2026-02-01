@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# AI-Powered Mock Interview Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-inspired, rule-based mock interview platform that simulates a real-world interview environment by adapting questions, enforcing time pressure, evaluating responses, and generating an interview readiness report.
 
-## Available Scripts
+This project is built as part of a hackathon challenge to model how interviews actually work, not just test memorized knowledge.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Live Demo (Screen Recording)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Screen Recording of Working Project:  
+https://1drv.ms/v/c/ec9ab3da9926aa0b/IQBmN8lB4m0sSYsqw0vl3PehAcGqikBbzlETlJRP66H_1Ec?e=iX0cHS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The video demonstrates:
+- Resume and Job Description input
+- Adaptive interview flow
+- Time-based question constraints
+- Dynamic scoring and early termination
+- Final interview readiness report
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Problem Statement Summary
 
-### `npm run build`
+Candidates often fail interviews not due to lack of skill, but due to:
+- Lack of realistic interview practice
+- No objective, structured feedback
+- No time-pressure simulation
+- No adaptability in mock interviews
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This platform addresses these issues by simulating a thinking interviewer that can adapt, evaluate, and decide using predefined rules.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Key Features
 
-### `npm run eject`
+### Resume and Job Description Analysis
+- Accepts candidate resume and job description
+- Detects role keywords (React, Python, Software)
+- Aligns interview questions with the target role
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Adaptive Interview Flow
+- Question difficulty adapts dynamically:
+  - Strong responses lead to harder questions
+  - Weak responses lead to easier questions
+- Interview terminates early if performance falls below a defined threshold
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Time-Constrained Interview
+- Fixed response time per question:
+  - Easy: 60 seconds
+  - Medium: 90 seconds
+  - Hard: 120 seconds
+- Penalties applied for:
+  - Over-time responses
+  - Very slow answers
+  - No response (timeout)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Objective Scoring Mechanism
+Responses are evaluated using predefined, rule-based heuristics acting as proxies for:
+- Accuracy
+- Clarity
+- Depth
+- Relevance
+- Time efficiency
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Final Interview Score is calculated as the average of all question scores.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Output and Evaluation Report
 
-### Analyzing the Bundle Size
+At the end of the interview, the platform provides:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Final Interview Readiness Score (0–100)
+- Performance breakdown by skill areas
+- Strengths and areas for improvement
+- Actionable feedback for candidate improvement
+- Hiring readiness indicator for the given job description
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Interview Decision Logic
 
-### Advanced Configuration
+The interviewer behavior is simulated using state-based, rule-driven logic:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+| Interview Behavior | Implementation |
+|-------------------|----------------|
+| Thinking | Role detection from job description |
+| Asking | Difficulty-based question selection |
+| Adapting | Dynamic difficulty adjustment |
+| Evaluating | Rule-based scoring engine |
+| Deciding | Early termination and readiness outcome |
 
-### Deployment
+This approach ensures explainability, consistency, and scalability.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Frontend: React.js
+- State Management: React Hooks
+- Styling: Custom CSS 
+- Evaluation Engine: Rule-based logic
+
+---
+
+## Installation and Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Thanishka15/AI-powered-mock-Interview.git
+cd AI-powered-mock-Interview
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Environment variables
+
+Create a .env file in the root directory and add:
+```bash
+REACT_APP_OPENAI_API_KEY=your_api_key_here
+```
+### 4. Run the application
+```bash
+npm start
+```
+---
+
+## Security and Best Practices
+
+- Environment variables stored in `.env`
+- `.env` excluded using `.gitignore`
+- No sensitive data committed to the repository
+
+The application runs at:
+http://localhost:3000
